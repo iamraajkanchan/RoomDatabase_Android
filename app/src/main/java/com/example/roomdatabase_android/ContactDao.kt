@@ -7,13 +7,13 @@ import androidx.room.*
 interface ContactDao
 {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertContact(contact : Contact)
+    suspend fun insertContact(contact : Contact)
 
     @Update
-    fun updateContact(contact : Contact)
+    suspend fun updateContact(contact : Contact)
 
     @Delete
-    fun deleteContact(contact : Contact)
+    suspend fun deleteContact(contact : Contact)
 
     @Query("SELECT * from contact")
     fun getContacts() : LiveData<List<Contact>>
